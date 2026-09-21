@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-pt-24">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Апартаменти у Львові — 14 помешкань у центрі | InTown</title>
+  <meta name="description" content="Стильні апартаменти в центрі Львова: власна кухня, ванна кімната, вид на старе місто. Фільтри за гостями, спальнями та ціною." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/app.css" />
+  <script defer src="assets/app.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+</head>
+<body class="bg-base text-ink antialiased">
+
+  <!-- HEADER -->
+  <header x-data="{ mobile: false }" class="sticky top-0 z-50 border-b border-line/70 bg-base/85 backdrop-blur-md">
+    <div class="mx-auto flex w-full max-w-[1200px] items-center gap-6 px-5 py-3.5 sm:px-8">
+      <a href="index.html" class="flex items-baseline gap-2" aria-label="InTown — на головну">
+        <span class="font-display text-[28px] font-bold leading-none tracking-tight text-brand">InTown</span>
+        <span class="hidden text-[10px] font-medium uppercase tracking-[0.22em] text-ink-3 sm:inline">Lviv</span>
+      </a>
+      <nav class="ml-4 hidden items-center gap-7 lg:flex" aria-label="Головна навігація">
+        <a href="index.html" class="link-underline text-sm font-medium text-ink-2 hover:text-ink">Головна</a>
+        <a href="hostels.html" class="link-underline text-sm font-medium text-ink-2 hover:text-ink">Хостели</a>
+        <a href="apartments.html" class="link-underline text-sm font-medium text-ink" aria-current="page">Апартаменти</a>
+        <a href="contacts.html" class="link-underline text-sm font-medium text-ink-2 hover:text-ink">Контакти</a>
+      </nav>
+      <div class="ml-auto flex items-center gap-2 sm:gap-3">
+        <div x-data="{ open: false }" class="relative">
+          <button @click="open = !open" @keydown.escape.window="open = false" :aria-expanded="open.toString()" aria-haspopup="true" class="flex items-center gap-2 rounded-box border border-line bg-surface px-3 py-2 text-sm font-semibold text-ink transition-colors duration-200 hover:border-brand/40 hover:text-brand">
+            <svg class="h-4 w-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span class="hidden md:inline">+380 73 032 00 03</span><span class="md:hidden">Дзвінок</span>
+            <svg class="h-3.5 w-3.5 transition-transform duration-200" :class="open ? 'rotate-180' : ''" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition.origin.top.right @click.outside="open = false" class="absolute right-0 z-50 mt-2 w-72 rounded-box border border-line bg-surface p-2 shadow-float" style="display:none">
+            <a href="tel:+380730320003" class="flex items-center justify-between rounded-box px-3 py-2.5 transition-colors hover:bg-brand-soft"><span><span class="block text-xs uppercase tracking-widest text-ink-3">Бронювання</span><span class="font-semibold text-ink">+380 73 032 00 03</span></span></a>
+            <a href="tel:+380670000000" class="flex items-center justify-between rounded-box px-3 py-2.5 transition-colors hover:bg-brand-soft"><span><span class="block text-xs uppercase tracking-widest text-ink-3">Адміністратор</span><span class="font-semibold text-ink">+380 67 000 00 00</span></span></a>
+            <a href="tel:+380500000000" class="flex items-center justify-between rounded-box px-3 py-2.5 transition-colors hover:bg-brand-soft"><span><span class="block text-xs uppercase tracking-widest text-ink-3">Партнерам</span><span class="font-semibold text-ink">+380 50 000 00 00</span></span></a>
+          </div>
+        </div>
+        <div class="hidden items-center rounded-box border border-line bg-surface p-0.5 sm:flex" role="group" aria-label="Мова">
+          <a href="apartments.html" class="rounded-box px-2.5 py-1.5 text-xs font-semibold text-ink" aria-current="true">UA</a>
+          <a href="#" class="rounded-box px-2.5 py-1.5 text-xs font-semibold text-ink-3 hover:text-ink">EN</a>
+        </div>
+        <a href="#booking" class="hidden rounded-box bg-accent px-4 py-2.5 text-sm font-bold text-accent-ink transition-transform duration-200 hover:-translate-y-0.5 sm:inline-block">Забронювати</a>
+        <button @click="mobile = !mobile" class="rounded-box border border-line bg-surface p-2 lg:hidden" :aria-expanded="mobile.toString()" aria-label="Меню"><svg class="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      </div>
+    </div>
+    <div x-show="mobile" x-transition class="border-t border-line bg-base lg:hidden" style="display:none">
+      <nav class="mx-auto flex w-full max-w-[1200px] flex-col px-5 py-3 sm:px-8" aria-label="Мобільна навігація">
+        <a href="index.html" class="border-b border-line py-3 font-medium text-ink-2">Головна</a>
+        <a href="hostels.html" class="border-b border-line py-3 font-medium text-ink-2">Хостели</a>
+        <a href="apartments.html" class="border-b border-line py-3 font-medium text-ink">Апартаменти</a>
+        <a href="contacts.html" class="border-b border-line py-3 font-medium text-ink-2">Контакти</a>
+        <a href="#booking" class="mt-4 rounded-box bg-accent px-4 py-3 text-center font-bold text-accent-ink">Забронювати</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE INTRO -->
+    <section class="mx-auto w-full max-w-[1200px] px-5 pb-10 pt-16 sm:px-8 sm:pt-24">
+      <nav class="text-xs text-ink-3" aria-label="Хлібні крихти"><a href="index.html" class="link-underline hover:text-ink">Головна</a><span class="mx-2">/</span><span class="text-ink-2">Апартаменти</span></nav>
+      <p class="mt-8 text-xs font-semibold uppercase tracking-[0.3em] text-brand">14 помешкань у центрі</p>
+      <h1 class="mt-4 max-w-[16ch] font-display text-[clamp(2.5rem,6vw,4.5rem)] font-semibold">Стильні апартаменти у Львові</h1>
+      <p class="mt-6 max-w-[60ch] text-lg text-ink-2">Власна кухня, ванна кімната та вид на старе місто. Оберіть помешкання за кількістю гостей, площею та ціною.</p>
+    </section>
+
+    <!-- FILTERS -->
+    <section class="sticky top-[73px] z-40 border-y border-line bg-base/90 backdrop-blur-md">
+      <form id="filters" class="mx-auto flex w-full max-w-[1200px] flex-wrap items-end gap-3 px-5 py-4 sm:px-8">
+        <label class="flex min-w-[7rem] flex-1 flex-col gap-1.5">
+          <span class="text-[10px] font-semibold uppercase tracking-widest text-ink-3">Гостей</span>
+          <select id="f-guests" class="rounded-box border border-line bg-surface px-3 py-2.5 text-sm font-medium focus:border-brand focus:outline-none">
+            <option value="0">Будь-яка</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option>
+          </select>
+        </label>
+        <label class="flex min-w-[7rem] flex-1 flex-col gap-1.5">
+          <span class="text-[10px] font-semibold uppercase tracking-widest text-ink-3">Спальні</span>
+          <select id="f-beds" class="rounded-box border border-line bg-surface px-3 py-2.5 text-sm font-medium focus:border-brand focus:outline-none">
+            <option value="0">Будь-яка</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option>
+          </select>
+        </label>
+        <label class="flex min-w-[7rem] flex-1 flex-col gap-1.5">
+          <span class="text-[10px] font-semibold uppercase tracking-widest text-ink-3">Район</span>
+          <select id="f-district" class="rounded-box border border-line bg-surface px-3 py-2.5 text-sm font-medium focus:border-brand focus:outline-none">
+            <option value="">Усі райони</option><option>Площа Ринок</option><option>Соборна</option><option>Личаківська</option><option>Арсенальна</option>
+          </select>
+        </label>
+        <label class="flex min-w-[8rem] flex-1 flex-col gap-1.5">
+          <span class="text-[10px] font-semibold uppercase tracking-widest text-ink-3">Ціна до ₴</span>
+          <input id="f-price" type="range" min="1500" max="6000" step="100" value="6000" class="mt-3 w-full accent-[#0F766E]" />
+        </label>
+        <label class="flex min-w-[8rem] flex-1 flex-col gap-1.5">
+          <span class="text-[10px] font-semibold uppercase tracking-widest text-ink-3">Сортування</span>
+          <select id="f-sort" class="rounded-box border border-line bg-surface px-3 py-2.5 text-sm font-medium focus:border-brand focus:outline-none">
+            <option value="pop">Популярні</option><option value="asc">Ціна ↑</option><option value="desc">Ціна ↓</option>
+          </select>
+        </label>
+        <span id="f-count" class="w-full pb-1 text-xs text-ink-3 sm:w-auto sm:pb-3">14 помешкань</span>
+      </form>
+    </section>
+
+    <!-- GRID -->
+    <section class="mx-auto w-full max-w-[1200px] px-5 py-14 sm:px-8">
+      <div id="grid" class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"></div>
+      <p id="empty" class="hidden py-20 text-center text-ink-3">Нічого не знайдено. <button type="button" id="reset" class="font-semibold text-brand underline">Скинути фільтри</button></p>
+      <div class="mt-14 text-center">
+        <button type="button" id="more" class="rounded-box border border-line bg-surface px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:border-brand/40 hover:text-brand">Показати ще</button>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mx-auto w-full max-w-[1200px] px-5 pb-20 sm:px-8">
+      <div id="booking" class="reveal relative overflow-hidden rounded-box bg-brand px-8 py-14 text-center sm:px-16">
+        <h2 class="mx-auto max-w-[26ch] font-display text-[clamp(2rem,5vw,3.25rem)] font-semibold text-white">Не знайшли потрібний варіант?</h2>
+        <p class="mx-auto mt-4 max-w-[46ch] text-white/80">Напишіть адміністратору — підберемо апартаменти під ваші дати та компанію.</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a href="https://t.me/intownhostel" class="rounded-box bg-accent px-6 py-3.5 text-sm font-bold text-accent-ink transition-transform duration-200 hover:-translate-y-0.5">Telegram</a>
+          <a href="contacts.html" class="rounded-box border border-white/30 px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/10">Усі контакти</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line bg-surface">
+    <div class="mx-auto w-full max-w-[1200px] px-5 py-16 sm:px-8">
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-4">
+        <div class="md:col-span-2">
+          <span class="font-display text-3xl font-bold text-brand">InTown</span>
+          <p class="mt-4 max-w-[40ch] text-sm text-ink-2">Мережа з 3 хостелів і понад 10 апартаментів у центрі Львова. Працюємо з 2018 року.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://t.me/intownhostel" class="rounded-box border border-line px-4 py-2 text-xs font-semibold text-ink-2 hover:border-brand/40 hover:text-brand">Telegram</a>
+            <a href="viber://chat?number=+380730320003" class="rounded-box border border-line px-4 py-2 text-xs font-semibold text-ink-2 hover:border-brand/40 hover:text-brand">Viber</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-3">Навігація</h3>
+          <ul class="mt-4 space-y-2.5 text-sm">
+            <li><a href="index.html" class="link-underline text-ink-2 hover:text-ink">Головна</a></li>
+            <li><a href="hostels.html" class="link-underline text-ink-2 hover:text-ink">Хостели</a></li>
+            <li><a href="apartments.html" class="link-underline text-ink-2 hover:text-ink">Апартаменти</a></li>
+            <li><a href="contacts.html" class="link-underline text-ink-2 hover:text-ink">Контакти</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-3">Контакти</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-ink-2">
+            <li><a href="tel:+380730320003" class="link-underline hover:text-ink">+380 73 032 00 03</a></li>
+            <li><a href="tel:+380670000000" class="link-underline hover:text-ink">+380 67 000 00 00</a></li>
+            <li><a href="tel:+380500000000" class="link-underline hover:text-ink">+380 50 000 00 00</a></li>
+            <li><a href="mailto:Intown@ukr.net" class="link-underline hover:text-ink">Intown@ukr.net</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 flex flex-col items-start justify-between gap-3 border-t border-line pt-6 text-xs text-ink-3 sm:flex-row sm:items-center">
+        <p>© 2026 InTown. Усі права захищено.</p>
+        <div class="flex gap-6"><a href="#" class="link-underline hover:text-ink">Політика конфіденційності</a><a href="#" class="link-underline hover:text-ink">Умови</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const IMG = {
+      living: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1000&q=80&auto=format&fit=crop',
+      bedroom: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1000&q=80&auto=format&fit=crop',
+      living2: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1000&q=80&auto=format&fit=crop',
+      kitchen: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1000&q=80&auto=format&fit=crop',
+      bedroom2: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1000&q=80&auto=format&fit=crop',
+      bath: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1000&q=80&auto=format&fit=crop',
+      cozy: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1000&q=80&auto=format&fit=crop',
+      hotel: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80&auto=format&fit=crop',
+      loft: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1000&q=80&auto=format&fit=crop',
+      view: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1000&q=80&auto=format&fit=crop',
+      kitchenWhite: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1000&q=80&auto=format&fit=crop'
+    };
+    const DATA = [
+      { name: 'Ратуша з терасою', district: 'Площа Ринок', m2: 35, guests: 2, beds: 1, price: 2400, img: IMG.hotel, pop: 98, tags: ['Wi-Fi','Кухня','Кондиціонер'] },
+      { name: 'Ратуша Дуплекс', district: 'Площа Ринок', m2: 48, guests: 4, beds: 2, price: 3200, img: IMG.living, pop: 95, tags: ['Wi-Fi','Кухня','Балкон'] },
+      { name: 'Ратуша Комфорт', district: 'Площа Ринок', m2: 38, guests: 3, beds: 1, price: 2700, img: IMG.cozy, pop: 92, tags: ['Wi-Fi','Пральна машина','Кондиціонер'] },
+      { name: 'Ратуша', district: 'Площа Ринок', m2: 32, guests: 2, beds: 1, price: 2300, img: IMG.living2, pop: 90, tags: ['Wi-Fi','Кухня'] },
+      { name: 'Площа Ринок 12', district: 'Площа Ринок', m2: 40, guests: 4, beds: 2, price: 2900, img: IMG.kitchen, pop: 88, tags: ['Wi-Fi','Кухня','Пральна машина'] },
+      { name: 'Площа Ринок 20 Комфорт', district: 'Площа Ринок', m2: 45, guests: 4, beds: 2, price: 3400, img: IMG.loft, pop: 87, tags: ['Wi-Fi','Кухня','Кондиціонер'] },
+      { name: 'Площа Ринок 20', district: 'Площа Ринок', m2: 42, guests: 3, beds: 1, price: 2800, img: IMG.kitchenWhite, pop: 85, tags: ['Wi-Fi','Кухня'] },
+      { name: 'Арсенальна', district: 'Арсенальна', m2: 42, guests: 4, beds: 2, price: 2900, img: IMG.view, pop: 84, tags: ['Wi-Fi','Пральна машина','Балкон'] },
+      { name: 'Фреска Комфорт', district: 'Соборна', m2: 55, guests: 5, beds: 2, price: 3800, img: IMG.bedroom, pop: 82, tags: ['Wi-Fi','Кухня','Кондиціонер'] },
+      { name: 'Фреска Економ', district: 'Соборна', m2: 30, guests: 2, beds: 1, price: 1900, img: IMG.living2, pop: 78, tags: ['Wi-Fi','Кухня'] },
+      { name: 'Театральна', district: 'Соборна', m2: 44, guests: 4, beds: 2, price: 3100, img: IMG.bedroom2, pop: 80, tags: ['Wi-Fi','Кухня','Кондиціонер'] },
+      { name: 'Коперника', district: 'Личаківська', m2: 50, guests: 4, beds: 2, price: 3600, img: IMG.kitchen, pop: 79, tags: ['Wi-Fi','Пральна машина','Тераса'] },
+      { name: 'Площа Соборна 17', district: 'Соборна', m2: 60, guests: 6, beds: 3, price: 5200, img: IMG.living, pop: 93, tags: ['Wi-Fi','Кухня','Парковка'] },
+      { name: 'Личаківський Loft', district: 'Личаківська', m2: 65, guests: 5, beds: 2, price: 4400, img: IMG.cozy, pop: 81, tags: ['Wi-Fi','Кухня','Кондиціонер'] }
+    ];
+
+    const grid = document.getElementById('grid');
+    const state = { guests: 0, beds: 0, district: '', price: 6000, sort: 'pop', shown: 9 };
+
+    function card(p) {
+      const href = 'property.html';
+      return `
+        <article class="reveal group is-visible">
+          <a href="${href}" class="block overflow-hidden rounded-box">
+            <img src="${p.img}" alt="Апартаменти ${p.name}" loading="lazy" class="h-64 w-full object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-105" />
+          </a>
+          <div class="mt-5 flex items-start justify-between gap-4">
+            <div>
+              <h2 class="font-display text-2xl font-semibold leading-tight"><a href="${href}" class="hover:text-brand">${p.name}</a></h2>
+              <p class="mt-1 text-sm text-ink-3">${p.district} · ${p.m2} м² · ${p.guests} гостей</p>
+            </div>
+            <div class="shrink-0 rounded-box bg-brand-soft px-3 py-1.5 text-right">
+              <span class="block text-[10px] uppercase tracking-wider text-brand">від</span>
+              <span class="font-display text-xl font-bold text-brand">₴${p.price.toLocaleString('uk-UA')}</span>
+            </div>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            ${p.tags.map(t => `<span class="rounded-box border border-line px-2.5 py-1 text-xs text-ink-2">${t}</span>`).join('')}
+          </div>
+        </article>`;
+    }
+
+    function render() {
+      let list = DATA.filter(p =>
+        p.guests >= state.guests &&
+        p.beds >= state.beds &&
+        (!state.district || p.district === state.district) &&
+        p.price <= state.price
+      );
+      if (state.sort === 'asc') list.sort((a, b) => a.price - b.price);
+      else if (state.sort === 'desc') list.sort((a, b) => b.price - a.price);
+      else list.sort((a, b) => b.pop - a.pop);
+
+      document.getElementById('f-count').textContent = list.length + ' ' + (list.length === 1 ? 'помешкання' : 'помешкань');
+      document.getElementById('empty').classList.toggle('hidden', list.length !== 0);
+      document.getElementById('more').classList.toggle('hidden', list.length <= state.shown);
+      grid.innerHTML = list.slice(0, state.shown).map(card).join('');
+    }
+
+    function sync() {
+      state.guests = +document.getElementById('f-guests').value;
+      state.beds = +document.getElementById('f-beds').value;
+      state.district = document.getElementById('f-district').value;
+      state.price = +document.getElementById('f-price').value;
+      state.sort = document.getElementById('f-sort').value;
+      state.shown = 9;
+      render();
+    }
+
+    ['f-guests','f-beds','f-district','f-price','f-sort'].forEach(id =>
+      document.getElementById(id).addEventListener('input', sync));
+    document.getElementById('more').addEventListener('click', () => { state.shown += 6; render(); });
+    document.getElementById('reset').addEventListener('click', () => {
+      document.getElementById('f-guests').value = '0';
+      document.getElementById('f-beds').value = '0';
+      document.getElementById('f-district').value = '';
+      document.getElementById('f-price').value = '6000';
+      document.getElementById('f-sort').value = 'pop';
+      sync();
+    });
+    render();
+  </script>
+</body>
+</html>

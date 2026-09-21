@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-pt-24">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ратуша з терасою — апартаменти на Площі Ринок 3 | InTown</title>
+  <meta name="description" content="Апартаменти Ратуша з терасою: 35 м², власна кухня та ванна, вид на внутрішній двір. Забронюйте онлайн — вільні дати та ціни." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/app.css" />
+  <script defer src="assets/app.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+</head>
+<body class="bg-base text-ink antialiased" x-data="{ mobile:false, lightbox:false, slide:0, gallery:[
+  'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1600&q=80&auto=format&fit=crop'
+] }">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-line/70 bg-base/85 backdrop-blur-md">
+    <div class="mx-auto flex w-full max-w-[1200px] items-center gap-6 px-5 py-3.5 sm:px-8">
+      <a href="index.html" class="flex items-baseline gap-2" aria-label="InTown — на головну">
+        <span class="font-display text-[28px] font-bold leading-none tracking-tight text-brand">InTown</span>
+        <span class="hidden text-[10px] font-medium uppercase tracking-[0.22em] text-ink-3 sm:inline">Lviv</span>
+      </a>
+      <nav class="ml-4 hidden items-center gap-7 lg:flex" aria-label="Головна навігація">
+        <a href="index.html" class="link-underline text-sm font-medium text-ink-2 hover:text-ink">Головна</a>
+        <a href="hostels.html" class="link-underline text-sm font-medium text-ink-2 hover:text-ink">Хостели</a>
+        <a href="apartments.html" class="link-underline text-sm font-medium text-ink-2 hover:text-ink">Апартаменти</a>
+        <a href="contacts.html" class="link-underline text-sm font-medium text-ink-2 hover:text-ink">Контакти</a>
+      </nav>
+      <div class="ml-auto flex items-center gap-2 sm:gap-3">
+        <div x-data="{ open: false }" class="relative">
+          <button @click="open = !open" @keydown.escape.window="open = false" :aria-expanded="open.toString()" aria-haspopup="true" class="flex items-center gap-2 rounded-box border border-line bg-surface px-3 py-2 text-sm font-semibold text-ink transition-colors duration-200 hover:border-brand/40 hover:text-brand">
+            <svg class="h-4 w-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span class="hidden md:inline">+380 73 032 00 03</span><span class="md:hidden">Дзвінок</span>
+            <svg class="h-3.5 w-3.5 transition-transform duration-200" :class="open ? 'rotate-180' : ''" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition.origin.top.right @click.outside="open = false" class="absolute right-0 z-50 mt-2 w-72 rounded-box border border-line bg-surface p-2 shadow-float" style="display:none">
+            <a href="tel:+380730320003" class="flex items-center justify-between rounded-box px-3 py-2.5 transition-colors hover:bg-brand-soft"><span><span class="block text-xs uppercase tracking-widest text-ink-3">Бронювання</span><span class="font-semibold text-ink">+380 73 032 00 03</span></span></a>
+            <a href="tel:+380670000000" class="flex items-center justify-between rounded-box px-3 py-2.5 transition-colors hover:bg-brand-soft"><span><span class="block text-xs uppercase tracking-widest text-ink-3">Адміністратор</span><span class="font-semibold text-ink">+380 67 000 00 00</span></span></a>
+            <a href="tel:+380500000000" class="flex items-center justify-between rounded-box px-3 py-2.5 transition-colors hover:bg-brand-soft"><span><span class="block text-xs uppercase tracking-widest text-ink-3">Партнерам</span><span class="font-semibold text-ink">+380 50 000 00 00</span></span></a>
+          </div>
+        </div>
+        <div class="hidden items-center rounded-box border border-line bg-surface p-0.5 sm:flex" role="group" aria-label="Мова">
+          <a href="#" class="rounded-box px-2.5 py-1.5 text-xs font-semibold text-ink" aria-current="true">UA</a>
+          <a href="#" class="rounded-box px-2.5 py-1.5 text-xs font-semibold text-ink-3 hover:text-ink">EN</a>
+        </div>
+        <a href="#booking" class="hidden rounded-box bg-accent px-4 py-2.5 text-sm font-bold text-accent-ink transition-transform duration-200 hover:-translate-y-0.5 sm:inline-block">Забронювати</a>
+        <button @click="mobile = !mobile" class="rounded-box border border-line bg-surface p-2 lg:hidden" :aria-expanded="mobile.toString()" aria-label="Меню"><svg class="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      </div>
+    </div>
+    <div x-show="mobile" x-transition class="border-t border-line bg-base lg:hidden" style="display:none">
+      <nav class="mx-auto flex w-full max-w-[1200px] flex-col px-5 py-3 sm:px-8" aria-label="Мобільна навігація">
+        <a href="index.html" class="border-b border-line py-3 font-medium text-ink-2">Головна</a>
+        <a href="hostels.html" class="border-b border-line py-3 font-medium text-ink-2">Хостели</a>
+        <a href="apartments.html" class="border-b border-line py-3 font-medium text-ink-2">Апартаменти</a>
+        <a href="contacts.html" class="border-b border-line py-3 font-medium text-ink-2">Контакти</a>
+        <a href="#booking" class="mt-4 rounded-box bg-accent px-4 py-3 text-center font-bold text-accent-ink">Забронювати</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- TITLE -->
+    <section class="mx-auto w-full max-w-[1200px] px-5 pt-10 sm:px-8">
+      <nav class="text-xs text-ink-3" aria-label="Хлібні крихти">
+        <a href="index.html" class="link-underline hover:text-ink">Головна</a><span class="mx-2">/</span>
+        <a href="apartments.html" class="link-underline hover:text-ink">Апартаменти</a><span class="mx-2">/</span>
+        <span class="text-ink-2">Ратуша з терасою</span>
+      </nav>
+      <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h1 class="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-semibold">Ратуша з терасою</h1>
+          <p class="mt-2 text-ink-2">Площа Ринок 3, Львів · 35 м² · 2 гості · 1 спальня</p>
+        </div>
+        <div class="flex items-center gap-2 text-accent" aria-label="Оцінка 9.5 з 10">
+          <span class="text-2xl">★★★★★</span>
+          <span class="text-sm text-ink-3">9.5 · Booking</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="mx-auto w-full max-w-[1200px] px-5 pt-8 sm:px-8">
+      <div class="grid grid-cols-4 grid-rows-2 gap-3 overflow-hidden rounded-box">
+        <button type="button" @click="lightbox = true; slide = 0" class="col-span-4 row-span-2 overflow-hidden sm:col-span-2 sm:row-span-2">
+          <img :src="gallery[0]" alt="Вітальня апартаментів Ратуша" class="h-64 w-full object-cover transition-transform duration-700 hover:scale-105 sm:h-full" />
+        </button>
+        <template x-for="(img, i) in gallery.slice(1)" :key="i">
+          <button type="button" @click="lightbox = true; slide = i + 1" class="col-span-2 row-span-1 hidden overflow-hidden sm:col-span-1 sm:block">
+            <img :src="img" :alt="'Фото ' + (i + 2)" class="h-40 w-full object-cover transition-transform duration-700 hover:scale-105 sm:h-full" />
+          </button>
+        </template>
+      </div>
+      <button type="button" @click="lightbox = true; slide = 0" class="mt-3 text-sm font-semibold text-brand underline">Показати всі фото</button>
+    </section>
+
+    <!-- CONTENT + BOOKING -->
+    <section class="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-12 px-5 py-14 sm:px-8 lg:grid-cols-[1fr_400px]">
+      <!-- LEFT -->
+      <div>
+        <div class="border-y border-line py-8">
+          <h2 class="font-display text-3xl font-semibold">Про помешкання</h2>
+          <p class="mt-4 text-ink-2">Апартаменти на Площі Ринок 3 розташовані в самому серці Львова, за 2 хвилини ходьби від Церкви Пресвятої Євхаристії та за кілька кроків від Палацу Корнякта. Повністю обладнана кухня, власна ванна кімната з душем та безкоштовний Wi-Fi.</p>
+          <p class="mt-4 text-ink-2">Ідеальний вибір для пар і мандрівників, які хочуть жити в центрі та відчути атмосферу старого міста.</p>
+        </div>
+
+        <div class="border-b border-line py-8">
+          <h2 class="font-display text-2xl font-semibold">Зручності</h2>
+          <ul class="mt-5 grid grid-cols-2 gap-x-8 gap-y-4 text-sm text-ink-2 sm:grid-cols-3">
+            <li class="flex items-center gap-2.5"><span class="text-brand">◆</span> Безкоштовний Wi-Fi</li>
+            <li class="flex items-center gap-2.5"><span class="text-brand">◆</span> Власна кухня</li>
+            <li class="flex items-center gap-2.5"><span class="text-brand">◆</span> Пральна машина</li>
+            <li class="flex items-center gap-2.5"><span class="text-brand">◆</span> Кондиціонер</li>
+            <li class="flex items-center gap-2.5"><span class="text-brand">◆</span> Телевізор</li>
+            <li class="flex items-center gap-2.5"><span class="text-brand">◆</span> Фен</li>
+            <li class="flex items-center gap-2.5"><span class="text-brand">◆</span> Рушники</li>
+            <li class="flex items-center gap-2.5"><span class="text-brand">◆</span> Кавоварка</li>
+            <li class="flex items-center gap-2.5"><span class="text-brand">◆</span> Тераса</li>
+          </ul>
+        </div>
+
+        <div class="border-b border-line py-8">
+          <h2 class="font-display text-2xl font-semibold">Що поблизу</h2>
+          <ul class="mt-5 space-y-3 text-sm">
+            <li class="flex items-center justify-between gap-4 border-b border-line pb-3"><span class="text-ink-2">Церква Пресвятої Євхаристії</span><span class="text-ink-3">5 м</span></li>
+            <li class="flex items-center justify-between gap-4 border-b border-line pb-3"><span class="text-ink-2">Палац Корнякта</span><span class="text-ink-3">30 м</span></li>
+            <li class="flex items-center justify-between gap-4 border-b border-line pb-3"><span class="text-ink-2">Аптека-музей «Під чорним орлом»</span><span class="text-ink-3">30 м</span></li>
+            <li class="flex items-center justify-between gap-4 border-b border-line pb-3"><span class="text-ink-2">Площа Ринок</span><span class="text-ink-3">150 м</span></li>
+            <li class="flex items-center justify-between gap-4"><span class="text-ink-2">Оперний театр</span><span class="text-ink-3">500 м</span></li>
+          </ul>
+        </div>
+
+        <!-- MAP -->
+        <div class="pt-8">
+          <h2 class="font-display text-2xl font-semibold">Розташування на карті</h2>
+          <div class="mt-5 overflow-hidden rounded-box border border-line">
+            <img src="assets/map.png" alt="Карта — Площа Ринок 3, Львів" class="h-[360px] w-full object-cover" loading="lazy" />
+          </div>
+          <a href="https://www.openstreetmap.org/?mlat=49.84155&mlon=24.03230#map=17/49.84155/24.03230" class="mt-3 inline-block text-sm font-semibold text-brand underline">Прокласти маршрут</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: BOOKING -->
+      <aside id="booking" class="lg:sticky lg:top-24 lg:self-start">
+        <div class="rounded-box border border-line bg-surface p-6 shadow-float">
+          <div class="flex items-end justify-between">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-ink-3">Ціна за ніч</span>
+              <p class="font-display text-3xl font-bold text-brand">₴2 400</p>
+            </div>
+            <span class="rounded-box bg-accent-soft px-3 py-1 text-xs font-bold text-accent-ink">Спецпропозиція</span>
+          </div>
+
+          <!-- EasyMS widget placeholder -->
+          <div class="mt-6 rounded-box border border-dashed border-brand/50 bg-brand-soft/50 p-4">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-[0.18em] text-brand">EasyMS.co · вільні дати</span>
+              <span class="text-[10px] text-ink-3">онлайн</span>
+            </div>
+            <div class="mt-3 grid grid-cols-2 gap-3">
+              <label class="block"><span class="mb-1 block text-[10px] font-semibold uppercase tracking-widest text-ink-3">Заїзд</span><input type="date" class="w-full rounded-box border border-line bg-surface px-3 py-2 text-sm focus:border-brand focus:outline-none" /></label>
+              <label class="block"><span class="mb-1 block text-[10px] font-semibold uppercase tracking-widest text-ink-3">Виїзд</span><input type="date" class="w-full rounded-box border border-line bg-surface px-3 py-2 text-sm focus:border-brand focus:outline-none" /></label>
+            </div>
+            <div class="mt-3 grid grid-cols-7 gap-1 text-center text-[11px]">
+              <span class="text-ink-3">Пн</span><span class="text-ink-3">Вт</span><span class="text-ink-3">Ср</span><span class="text-ink-3">Чт</span><span class="text-ink-3">Пт</span><span class="text-ink-3">Сб</span><span class="text-ink-3">Нд</span>
+              <span class="rounded-box bg-surface py-1.5 text-ink-3 line-through">1</span>
+              <span class="rounded-box bg-surface py-1.5 text-ink-3 line-through">2</span>
+              <span class="rounded-box bg-surface py-1.5 font-semibold text-brand">3</span>
+              <span class="rounded-box bg-brand py-1.5 font-semibold text-white">4</span>
+              <span class="rounded-box bg-brand py-1.5 font-semibold text-white">5</span>
+              <span class="rounded-box bg-brand py-1.5 font-semibold text-white">6</span>
+              <span class="rounded-box bg-brand py-1.5 font-semibold text-white">7</span>
+              <span class="rounded-box bg-surface py-1.5 font-semibold text-brand">8</span>
+              <span class="rounded-box bg-surface py-1.5 font-semibold text-brand">9</span>
+              <span class="rounded-box bg-surface py-1.5 font-semibold text-brand">10</span>
+              <span class="rounded-box bg-surface py-1.5 text-ink-3 line-through">11</span>
+              <span class="rounded-box bg-surface py-1.5 font-semibold text-brand">12</span>
+              <span class="rounded-box bg-surface py-1.5 font-semibold text-brand">13</span>
+              <span class="rounded-box bg-surface py-1.5 font-semibold text-brand">14</span>
+            </div>
+            <button type="button" class="mt-4 w-full rounded-box bg-brand px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-deep">Забронювати на EasyMS</button>
+            <p class="mt-2 text-center text-[10px] text-ink-3">Віджет EasyMS.co з реальними цінами та вільними датами</p>
+          </div>
+
+          <!-- Contact manager -->
+          <a href="https://t.me/intownhostel" class="mt-5 block w-full rounded-box bg-accent px-5 py-3.5 text-center text-sm font-bold text-accent-ink transition-transform duration-200 hover:-translate-y-0.5">Написати адміністратору</a>
+          <div class="mt-4 space-y-2 text-sm">
+            <a href="tel:+380730320003" class="flex items-center justify-between rounded-box border border-line px-4 py-2.5 transition-colors hover:border-brand/40"><span class="text-ink-3">Бронювання</span><span class="font-semibold text-ink">+380 73 032 00 03</span></a>
+            <a href="tel:+380670000000" class="flex items-center justify-between rounded-box border border-line px-4 py-2.5 transition-colors hover:border-brand/40"><span class="text-ink-3">Адміністратор</span><span class="font-semibold text-ink">+380 67 000 00 00</span></a>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <a href="viber://chat?number=+380730320003" class="flex-1 rounded-box border border-line px-3 py-2 text-center text-xs font-semibold text-ink-2 hover:border-brand/40 hover:text-brand">Viber</a>
+            <a href="https://t.me/intownhostel" class="flex-1 rounded-box border border-line px-3 py-2 text-center text-xs font-semibold text-ink-2 hover:border-brand/40 hover:text-brand">Telegram</a>
+          </div>
+        </div>
+
+        <ul class="mt-5 space-y-2 text-xs text-ink-3">
+          <li>Заселення після 14:00 · виселення до 11:00</li>
+          <li>Безкоштовне скасування за 48 год</li>
+          <li>Пряме бронювання без комісій</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="border-y border-line bg-surface py-16">
+      <div class="mx-auto w-full max-w-[1200px] px-5 sm:px-8">
+        <h2 class="font-display text-3xl font-semibold">Відгуки</h2>
+        <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <figure class="rounded-box border border-line p-6"><div class="text-accent">★★★★★</div><blockquote class="mt-3 text-sm text-ink-2">«Неймовірна локація та дуже чисто. Тераса — окрема любов!»</blockquote><figcaption class="mt-4 text-xs text-ink-3">Олена · Booking</figcaption></figure>
+          <figure class="rounded-box border border-line p-6"><div class="text-accent">★★★★★</div><blockquote class="mt-3 text-sm text-ink-2">«Все як на фото. Господар швидко відповідав у Telegram.»</blockquote><figcaption class="mt-4 text-xs text-ink-3">Andrii · Google</figcaption></figure>
+          <figure class="rounded-box border border-line p-6"><div class="text-accent">★★★★★</div><blockquote class="mt-3 text-sm text-ink-2">«Ідеально для пари в центрі Львова. Обов'язково повернемось.»</blockquote><figcaption class="mt-4 text-xs text-ink-3">Marta · Booking</figcaption></figure>
+        </div>
+        <div class="mt-6 flex gap-4 text-sm">
+          <a href="#" class="link-underline font-semibold text-brand">Відгуки на Booking</a>
+          <a href="#" class="link-underline font-semibold text-brand">Відгуки на Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMILAR -->
+    <section class="mx-auto w-full max-w-[1200px] px-5 py-16 sm:px-8">
+      <h2 class="font-display text-3xl font-semibold">Схожі помешкання</h2>
+      <div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="group"><a href="property.html" class="block overflow-hidden rounded-box"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&q=80&auto=format&fit=crop" alt="Ратуша Дуплекс" class="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105" /></a><h3 class="mt-4 font-display text-xl font-semibold">Ратуша Дуплекс</h3><p class="text-sm text-ink-3">Площа Ринок 3 · 48 м² · 4 гості</p></article>
+        <article class="group"><a href="property.html" class="block overflow-hidden rounded-box"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80&auto=format&fit=crop" alt="Арсенальна" class="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105" /></a><h3 class="mt-4 font-display text-xl font-semibold">Арсенальна</h3><p class="text-sm text-ink-3">вул. Арсенальна · 42 м² · 4 гості</p></article>
+        <article class="group"><a href="property.html" class="block overflow-hidden rounded-box"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=80&auto=format&fit=crop" alt="Коперника" class="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105" /></a><h3 class="mt-4 font-display text-xl font-semibold">Коперника</h3><p class="text-sm text-ink-3">вул. Коперника · 50 м² · 4 гості</p></article>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div x-show="lightbox" @keydown.escape.window="lightbox = false" class="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-4" style="display:none">
+    <button type="button" @click="lightbox = false" class="absolute right-5 top-5 rounded-box border border-white/30 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10" aria-label="Закрити">Закрити ✕</button>
+    <button type="button" @click="slide = (slide - 1 + gallery.length) % gallery.length" class="absolute left-4 rounded-box border border-white/30 px-4 py-3 text-white hover:bg-white/10" aria-label="Попереднє фото">←</button>
+    <img :src="gallery[slide]" alt="Фото помешкання" class="max-h-[85vh] max-w-[85vw] rounded-box object-contain" />
+    <button type="button" @click="slide = (slide + 1) % gallery.length" class="absolute right-4 rounded-box border border-white/30 px-4 py-3 text-white hover:bg-white/10" aria-label="Наступне фото">→</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line bg-surface">
+    <div class="mx-auto w-full max-w-[1200px] px-5 py-16 sm:px-8">
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-4">
+        <div class="md:col-span-2">
+          <span class="font-display text-3xl font-bold text-brand">InTown</span>
+          <p class="mt-4 max-w-[40ch] text-sm text-ink-2">Мережа з 3 хостелів і понад 10 апартаментів у центрі Львова. Працюємо з 2018 року.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://t.me/intownhostel" class="rounded-box border border-line px-4 py-2 text-xs font-semibold text-ink-2 hover:border-brand/40 hover:text-brand">Telegram</a>
+            <a href="viber://chat?number=+380730320003" class="rounded-box border border-line px-4 py-2 text-xs font-semibold text-ink-2 hover:border-brand/40 hover:text-brand">Viber</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-3">Навігація</h3>
+          <ul class="mt-4 space-y-2.5 text-sm">
+            <li><a href="index.html" class="link-underline text-ink-2 hover:text-ink">Головна</a></li>
+            <li><a href="hostels.html" class="link-underline text-ink-2 hover:text-ink">Хостели</a></li>
+            <li><a href="apartments.html" class="link-underline text-ink-2 hover:text-ink">Апартаменти</a></li>
+            <li><a href="contacts.html" class="link-underline text-ink-2 hover:text-ink">Контакти</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-3">Контакти</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-ink-2">
+            <li><a href="tel:+380730320003" class="link-underline hover:text-ink">+380 73 032 00 03</a></li>
+            <li><a href="tel:+380670000000" class="link-underline hover:text-ink">+380 67 000 00 00</a></li>
+            <li><a href="tel:+380500000000" class="link-underline hover:text-ink">+380 50 000 00 00</a></li>
+            <li><a href="mailto:Intown@ukr.net" class="link-underline hover:text-ink">Intown@ukr.net</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 flex flex-col items-start justify-between gap-3 border-t border-line pt-6 text-xs text-ink-3 sm:flex-row sm:items-center">
+        <p>© 2026 InTown. Усі права захищено.</p>
+        <div class="flex gap-6"><a href="#" class="link-underline hover:text-ink">Політика конфіденційності</a><a href="#" class="link-underline hover:text-ink">Умови</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
